@@ -1,0 +1,9 @@
+Library/
+Assets/_Ignore/
+Temp/
+*.sln
+Assets/_Ignore.meta
+Builds/
+obj/
+*.csproj
+*.userprefs
