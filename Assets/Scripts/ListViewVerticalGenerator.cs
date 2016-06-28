@@ -12,7 +12,7 @@ public class ListViewVerticalGenerator : MonoBehaviour
 	private float _additionalHeight;	
 	private float _totalHeight;
 	private float _addHeight;
-	private float _percentageFromShowedPanelOfAllHeight;
+	private float _percentageFromShowedPanelOfTotalHeight;
 
 	// generate item list
 	public void GenerateList(int index, GameObject item, bool isEndData)
@@ -34,13 +34,13 @@ public class ListViewVerticalGenerator : MonoBehaviour
 
 		if(isEndData)
 		{
-			GenerateHeight();
-			SetPercentageFromShowedPanelOfAllHeight();
+			CalculateHeight();
+			CalculatePercentageMaskHeightBasedTotalHeight();
 		}
 	}
 
 	// calculate list height
-	public void GenerateHeight()
+	public void CalculateHeight()
 	{
 		RectTransform rectParent = _parentList.gameObject.GetComponent<RectTransform>();
 		_totalHeight += _additionalHeight;
@@ -78,10 +78,10 @@ public class ListViewVerticalGenerator : MonoBehaviour
 	// get index number item showed in panel
 	public int GetCurrentIndexOfItemShowed()
 	{
-		if(_percentageFromShowedPanelOfAllHeight < 1f)
+		if(_percentageFromShowedPanelOfTotalHeight < 1f)
 		{
 			float barValue = (1f - _bar.value);
-			int result = (int) ( barValue / _percentageFromShowedPanelOfAllHeight);
+			int result = (int) ( barValue / _percentageFromShowedPanelOfTotalHeight);
 			return result;
 		}
 		else
@@ -92,12 +92,12 @@ public class ListViewVerticalGenerator : MonoBehaviour
 
 
 	// calculate percentage scroll value based on height
-	private void SetPercentageFromShowedPanelOfAllHeight()
+	private void CalculatePercentageMaskHeightBasedTotalHeight()
 	{
 		int amountOfItemShowed = GetAmountOfItemShowedInPanel();
-		_percentageFromShowedPanelOfAllHeight = (_addHeight * amountOfItemShowed) / _totalHeight;
+		_percentageFromShowedPanelOfTotalHeight = (_addHeight * amountOfItemShowed) / _totalHeight;
 
-		if(_percentageFromShowedPanelOfAllHeight > 1f)
-			_percentageFromShowedPanelOfAllHeight = 1f;
+		if(_percentageFromShowedPanelOfTotalHeight > 1f)
+			_percentageFromShowedPanelOfTotalHeight = 1f;
 	}
 }
