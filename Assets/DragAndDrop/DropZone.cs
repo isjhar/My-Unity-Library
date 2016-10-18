@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-namespace UnityEngine.EventSystems
+namespace Isjhar.Library
 {
 	public abstract class DropZone : MonoBehaviour, IDropHandler 
 	{

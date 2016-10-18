@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-namespace SAS.SuratPendek
+namespace Isjhar.Library
 {
 	/// <summary>
 	/// Class yang handle fitur penggerak
