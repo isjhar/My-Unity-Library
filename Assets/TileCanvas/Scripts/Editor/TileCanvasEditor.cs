@@ -186,7 +186,7 @@ namespace Isjhar.TileCanvas
 
 		private Vector3 GetPositionByCoord(TileCanvas.Coord coord)
 		{
-			return new Vector3 (coord.X + 0.5f, coord.Y + 0.5f, _targetScript.transform.position.z);
+			return new Vector3 (coord.X + 0.5f, coord.Y + 0.5f, 0f) + _targetScript.transform.position;
 		}
 
 		private bool IsCoordOutOfBound(TileCanvas.Coord coord)
