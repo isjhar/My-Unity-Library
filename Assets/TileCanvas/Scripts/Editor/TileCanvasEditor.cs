@@ -122,7 +122,7 @@ namespace Isjhar.TileCanvas
 				{
 					_altState = AltState.Hold;
 				}	
-				else if (current.type == EventType.keyUp && current.keyCode == KeyCode.LeftAlt && _altState == AltState.Hold)
+				else if (current.type == EventType.KeyUp && current.keyCode == KeyCode.LeftAlt && _altState == AltState.Hold)
 				{
 					_altState = AltState.Idle;
 				}	
